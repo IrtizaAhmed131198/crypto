@@ -7,6 +7,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -74,5 +76,34 @@ class AuthController extends Controller
         // Logout the user
         Auth::logout();
         return redirect('login');
+    }
+
+    public function showRegisterForm()
+    {
+        return view('admin.auth.signup');
+    }
+
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'mobile' => 'required|string|max:15|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        // Create new user
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'password' => Hash::make($request->password),
+            'role_id' => 2,
+        ]);
+
+        // Auto login the user after registration
+        Auth::login($user);
+
+        return redirect()->route('admin.home.index')->with('success', 'Registration successful!');
     }
 }

@@ -18,9 +18,11 @@ use Illuminate\Support\Facades\Auth;
 Route::redirect('/', url('/login'));
 
 Route::namespace('App\Http\Controllers\Admin')->group(function () {
-    Route::get('login', 'AuthController@showLoginForm')->name('admin.login');
+    Route::get('login', 'AuthController@showLoginForm')->name('login');
     Route::post('login', 'AuthController@login');
-    Route::get('logout', 'AuthController@logout')->name('admin.logout');
+    Route::get('logout', 'AuthController@logout')->name('logout');
+    Route::get('signup', 'AuthController@showRegisterForm')->name('signup');
+    Route::post('signup', 'AuthController@register');
 });
 
 // Protected Admin Routes

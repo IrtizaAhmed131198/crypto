@@ -22,7 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
-        'mobile_number',
+        'mobile',
         'date_of_birth',
         'gender',
         'address',
