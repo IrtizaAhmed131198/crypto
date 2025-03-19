@@ -17,8 +17,20 @@
     <link rel="stylesheet" href="{{ url('public/admin/dist/css/adminlte.min.css') }}">
     <style>
         .login-logo img {
-            filter: drop-shadow(1px 5px 2px black);
-            margin-bottom: 1rem;
+            filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2)) contrast(1.2) brightness(1.1);
+            transition: all 0.3s ease-in-out;
+            margin-bottom: 15px;
+        }
+
+        .login-logo img:hover {
+            filter: drop-shadow(4px 6px 8px rgba(0, 0, 0, 0.3)) contrast(1.3) brightness(1.2);
+        }
+
+        .login-logo p {
+            font-size: 22px;
+            color: #333;
+            margin-top: 10px;
+            font-weight: 500;
         }
     </style>
 </head>
