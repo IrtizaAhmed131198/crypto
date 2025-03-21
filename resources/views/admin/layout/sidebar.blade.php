@@ -67,7 +67,7 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item {{ request()->routeIs('users.*') ? 'menu-open' : '' }}">
+                <li class="nav-item {{ request()->routeIs('users.*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
@@ -93,7 +93,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-item {{ request()->routeIs('partners.*') ? 'menu-open' : '' }}">
+                {{-- <li class="nav-item {{ request()->routeIs('partners.*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->routeIs('partners.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>

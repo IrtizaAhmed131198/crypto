@@ -66,10 +66,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'nullable|string|min:8',
-            'phone_number' => 'required',
-            'dob' => 'required',
-            'role_id' => 'required',
-            'company_name' => $request->input('role_id') == 2 ? 'required' : '',
+            'mobile' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -82,32 +79,32 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
-        $user->phone_number = $request->input('phone_number');
-        $user->dob = $request->input('dob');
-        $user->country = $request->input('country');
-        $user->state = $request->input('state');
-        $user->city = $request->input('city');
-        $user->role_id = $request->input('role_id');
-        $user->company_name = $request->input('company_name');
+        $user->mobile = $request->input('mobile');
+        // $user->dob = $request->input('dob');
+        // $user->country = $request->input('country');
+        // $user->state = $request->input('state');
+        // $user->city = $request->input('city');
+        $user->role_id = 2;
+        // $user->company_name = $request->input('company_name');
         $user->active = 1;
-        $user->verified_from_idenfy = 1;
-        $user->otp_verified = 1;
+        // $user->verified_from_idenfy = 1;
+        // $user->otp_verified = 1;
         $user->save();
 
-        try {
-            if ($request->input('role_id') == 2) {
-                $role = 'Company';
-            } else {
-                $role = 'Employee';
-            }
-            Mail::to($request->input('email'))->send(new SignUpMail($request->input('name')));
-        } catch (\Exception $e) {
-            // If the email sending fails, handle the exception here
-            return redirect()->route('users.index')->with('success', $role.' created successfully but email not sent!');
-        }
+        // try {
+        //     if ($request->input('role_id') == 2) {
+        //         $role = 'Company';
+        //     } else {
+        //         $role = 'Employee';
+        //     }
+        //     Mail::to($request->input('email'))->send(new SignUpMail($request->input('name')));
+        // } catch (\Exception $e) {
+        //     // If the email sending fails, handle the exception here
+        //     return redirect()->route('users.index')->with('success', $role.' created successfully but email not sent!');
+        // }
 
         // Redirect back or to a success page
-        return redirect()->route('users.index')->with('success', $role.' created successfully and email sent!');
+        return redirect()->route('users.index')->with('success', 'User created successfully');
     }
 
     /**
