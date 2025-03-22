@@ -46,6 +46,13 @@ Route::namespace('App\Http\Controllers\Admin')
         Route::post('/users/update', 'UserController@update')->name('users.update');
         Route::post('/users/destroy', 'UserController@destroy')->name('users.destroy');
 
+        //profile
+        Route::get('/profile/edit', 'UserController@profile')->name('profile.edit');
+        Route::post('/profile/update', 'UserController@update_profile')->name('profile.update');
+
+        //team
+        Route::get('/team/qr', 'TeamController@qr')->name('team.qr');
+
         //Partners
         Route::get('/getPartners', 'PartnersController@getPartners')->name('partners.getPartners');
         Route::get('/partners', 'PartnersController@index')->name('partners.index');

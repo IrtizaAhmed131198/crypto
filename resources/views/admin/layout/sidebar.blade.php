@@ -67,27 +67,67 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('users.*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-user"></i>
+                @if (Auth::user()->role_id == 1)
+                    <li class="nav-item {{ request()->routeIs('users.*') ? 'menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Users
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('users.index') }}"
+                                    class="nav-link {{ request()->routeIs('users.index') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>List</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('users.create') }}"
+                                    class="nav-link {{ request()->routeIs('users.create') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Create</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+
+                <li class="nav-item {{ request()->routeIs('profile.*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-cog"></i>
                         <p>
-                            Users
+                            Edit Profile
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('users.index') }}"
-                                class="nav-link {{ request()->routeIs('users.index') ? 'active' : '' }}">
+                            <a href="{{ route('profile.edit') }}"
+                                class="nav-link {{ request()->routeIs('profile.edit') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>List</p>
+                                <p>Edit Profile</p>
                             </a>
                         </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item {{ request()->routeIs('team.*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->routeIs('team.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>
+                            My Team
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('users.create') }}"
-                                class="nav-link {{ request()->routeIs('users.create') ? 'active' : '' }}">
+                            <a href="{{ route('team.qr') }}"
+                                class="nav-link {{ request()->routeIs('team.qr') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Create</p>
+                                <p>My Team</p>
                             </a>
                         </li>
                     </ul>

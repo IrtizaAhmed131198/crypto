@@ -86,5 +86,32 @@
     .content-header .container-fluid .row .col-sm-6 h1 {
       font-size: 1.5rem;
     }
+    .qr_code {
+        text-align: center;
+        margin-top: 15px;
+        padding: 15px;
+    }
+
+    .copy-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    .copy-btn, .share-btn {
+        cursor: pointer;
+        padding: 8px 12px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+    }
+    .copy-btn:hover, .share-btn:hover {
+        background-color: #0056b3;
+    }
+    .hidden-input {
+        position: absolute;
+        left: -9999px;
+    }
   </style>
 </head>

@@ -14,7 +14,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ route('users.update') }}" id="createProfileForm" method="POST">
+            <form action="{{ route('profile.update') }}" id="createProfileForm" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{$data->id}}">
                 <div class="card-body row">

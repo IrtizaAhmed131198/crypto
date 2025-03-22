@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
@@ -139,11 +140,8 @@ class UserController extends Controller
                 Rule::unique('users')->ignore($request->id), // Ignore the current user's email
             ],
             'password' => 'nullable|string|min:8',
-            'phone_number' => 'required',
-            'dob' => 'required',
-            'role_id' => 'required',
+            'mobile' => 'required',
             'id' => 'required',
-            'company_name' => $request->input('role_id') == 2 ? 'required' : '',
         ]);
 
         if ($validator->fails()) {
@@ -155,27 +153,29 @@ class UserController extends Controller
         // Update the user's profile
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-        $user->phone_number = $request->input('phone_number');
-        $user->dob = $request->input('dob');
-        $user->country = $request->input('country');
-        $user->state = $request->input('state');
-        $user->city = $request->input('city');
-        $user->role_id = $request->input('role_id');
-
-        if($request->input('role_id') == 2){
-            $role = 'Company';
-            $company_name = $request->input('company_name');
-        }else{
-            $role = 'Employee';
-            $company_name = null;
+        if($request->input('password') != ''){
+            $user->password = Hash::make($request->input('password'));
         }
+        $user->mobile = $request->input('mobile');
+        // $user->dob = $request->input('dob');
+        // $user->country = $request->input('country');
+        // $user->state = $request->input('state');
+        // $user->city = $request->input('city');
+        // $user->role_id = $request->input('role_id');
 
-        $user->company_name = $company_name;
+        // if($request->input('role_id') == 2){
+        //     $role = 'Company';
+        //     $company_name = $request->input('company_name');
+        // }else{
+        //     $role = 'Employee';
+        //     $company_name = null;
+        // }
+
+        // $user->company_name = $company_name;
         $user->update();
 
         // Redirect back or to a success page
-        return redirect()->route('users.index')->with('success', $role.' updated successfully!');
+        return redirect()->route('users.index')->with('success', 'User updated successfully!');
     }
 
     /**
@@ -194,5 +194,49 @@ class UserController extends Controller
                 return response()->json(['message' => 'User not found'], 404);
             }
         }
+    }
+
+    public function profile()
+    {
+        $data = User::find(Auth::user()->id);
+        return view('admin.users.profile', ['title' => 'Update User' , 'data' => $data]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update_profile(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($request->id), // Ignore the current user's email
+            ],
+            'password' => 'nullable|string|min:8',
+            'mobile' => 'required',
+            'id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('error' , $validator->errors());
+        }
+
+        // Fetch the authenticated user
+        $user = User::find($request->id);
+        // Update the user's profile
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        if($request->input('password') != ''){
+            $user->password = Hash::make($request->input('password'));
+        }
+        $user->mobile = $request->input('mobile');
+        $user->update();
+
+        // Redirect back or to a success page
+        return redirect()->route('profile.edit')->with('success', 'Profile updated successfully!');
     }
 }
