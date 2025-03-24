@@ -42,13 +42,13 @@
     thead,
     tfoot,
     .card-header {
-      background-color: #1F2E80 !important;
+      background-color: #212529 !important;
       color: #fff !important;
     }
 
     .btn-custom {
       color: #fff !important;
-      background-color: #1F2E80 !important;
+      background-color: #212529 !important;
       border-color: #13237e !important;
     }
 
@@ -59,7 +59,7 @@
     }
 
     .page-item.active .page-link {
-      background-color: #1F2E80 !important;
+      background-color: #212529 !important;
       border-color: #13237e !important;
     }
 
@@ -77,10 +77,10 @@
     }
 
     .main-footer span a{
-      color: #1F2E80;
+      color: #212529;
     }
     [class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus {
-      background-color: #1F2E80;
+      background-color: #212529;
       color: #fff !important;
     }
     .content-header .container-fluid .row .col-sm-6 h1 {

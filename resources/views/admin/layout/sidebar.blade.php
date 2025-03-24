@@ -1,23 +1,23 @@
 <style>
     /* [class*=sidebar-dark-] .sidebar a {
-      color: #1F2E80;
+      color: #212529;
   } */
 
     .nav-link {
-        color: #1F2E80 !important;
+        color: #212529 !important;
     }
 
     .nav-link.active {
-        background: #1F2E80 !important;
+        background: #212529 !important;
         color: #fff !important;
     }
 
     .brand-link {
-        background-color: #DADADA !important;
+        background-color: #ebebeb !important;
     }
 
     .brand-text {
-        color: #1F2E80 !important;
+        color: #212529 !important;
         font-weight: 800 !important;
         font-size: 14px;
     }
@@ -32,7 +32,7 @@
 </style>
 
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #DADADA">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #ebebeb">
     <!-- Brand Logo -->
     <a href="{{ url('admin/home') }}" class="brand-link">
         <img src="{{ url('public/assets/logo/logo.png') }}" alt="AdminLTE Logo"
@@ -97,7 +97,7 @@
 
                 <li class="nav-item {{ request()->routeIs('profile.*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-cog"></i>
+                        <i class="nav-icon fas fa-user"></i>
                         <p>
                             Edit Profile
                             <i class="right fas fa-angle-left"></i>
@@ -116,7 +116,7 @@
 
                 <li class="nav-item {{ request()->routeIs('team.*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->routeIs('team.*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-cog"></i>
+                        <i class="nav-icon fas fa-user-friends"></i>
                         <p>
                             My Team
                             <i class="right fas fa-angle-left"></i>

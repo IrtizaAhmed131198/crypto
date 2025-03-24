@@ -34,6 +34,10 @@
                     <label for="exampleInputPhoneNumber">Mobile Number</label>
                     <input type="number" name="mobile" class="form-control" id="exampleInputPhoneNumber" placeholder="Enter phone number" required value="{{$data->mobile ?? ''}}">
                   </div>
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputPhoneNumber">Discount</label>
+                    <input type="number" name="discount" class="form-control" id="exampleInputDiscount" placeholder="Enter referral discount" value="{{$data->discount ?? ''}}">
+                  </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

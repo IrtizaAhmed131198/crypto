@@ -20,7 +20,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{url('admin/home')}}" style="color: #2a3da5">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{url('admin/home')}}" style="color: #343a40">Home</a></li>
                     <li class="breadcrumb-item active">{{ $title ?? 'Title' }}</li>
                     </ol>
                 </div><!-- /.col -->

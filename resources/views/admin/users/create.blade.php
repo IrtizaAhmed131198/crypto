@@ -33,6 +33,10 @@
                 <label for="exampleInputPhoneNumber">Mobile Number</label>
                 <input type="number" name="mobile" class="form-control" id="exampleInputPhoneNumber" placeholder="Enter phone number">
               </div>
+              <div class="form-group col-md-6">
+                <label for="exampleInputPhoneNumber">Discount</label>
+                <input type="number" name="discount" class="form-control" id="exampleInputDiscount" placeholder="Enter referral discount">
+              </div>
               {{-- <div class="form-group col-md-6">
                 <label for="exampleInputDOB">Date of Birth</label>
                 <input type="date" name="dob" class="form-control" id="exampleInputDOB" placeholder="Enter DOB">

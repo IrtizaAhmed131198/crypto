@@ -73,4 +73,22 @@ class User extends Authenticatable
     {
         return $this->image ? asset('public/' . $this->image) : null;
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            $user->invite_code = self::generateUniqueInviteCode();
+        });
+    }
+
+    public static function generateUniqueInviteCode()
+    {
+        do {
+            $code = rand(10000000, 99999999); // 8-digit unique code
+        } while (self::where('invite_code', $code)->exists());
+
+        return $code;
+    }
 }

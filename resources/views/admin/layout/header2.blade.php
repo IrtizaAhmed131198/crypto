@@ -8,7 +8,7 @@
   }
 </style>
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #1F2E80">
+<nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #212529">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -28,11 +28,11 @@
         </a> --}}
         <a href="{{ url('logout') }}" class="nav-link">Logout</a>
         {{-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="min-width: 122px !important;">
-          <a href="#" class="dropdown-item" style="color: #1F2E80;">
+          <a href="#" class="dropdown-item" style="color: #212529;">
             <i class="fas fa-users mr-2"></i> Profile
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{{ url('admin/logout') }}" class="dropdown-item" style="color: #1F2E80;">
+          <a href="{{ url('admin/logout') }}" class="dropdown-item" style="color: #212529;">
             <i class="fas fa-sign-out-alt mr-2"></i> Log Out
           </a>
         </div> --}}

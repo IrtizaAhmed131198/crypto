@@ -68,6 +68,7 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'nullable|string|min:8',
             'mobile' => 'required',
+            'discount' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -85,9 +86,10 @@ class UserController extends Controller
         // $user->country = $request->input('country');
         // $user->state = $request->input('state');
         // $user->city = $request->input('city');
+        $user->discount = $request->input('discount');
         $user->role_id = 2;
         // $user->company_name = $request->input('company_name');
-        $user->active = 1;
+        $user->status = 1;
         // $user->verified_from_idenfy = 1;
         // $user->otp_verified = 1;
         $user->save();
@@ -142,6 +144,7 @@ class UserController extends Controller
             'password' => 'nullable|string|min:8',
             'mobile' => 'required',
             'id' => 'required',
+            'discount' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -157,6 +160,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->input('password'));
         }
         $user->mobile = $request->input('mobile');
+        $user->discount = $request->input('discount');
         // $user->dob = $request->input('dob');
         // $user->country = $request->input('country');
         // $user->state = $request->input('state');
