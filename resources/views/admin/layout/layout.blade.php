@@ -9,7 +9,7 @@
       </div>
     @include('admin.layout.header2')
     <!-- Main Sidebar Container -->
-    @include('admin.layout.sidebar')
+    {{-- @include('admin.layout.sidebar') --}}
     <div class="content-wrapper" style="height: fit-content;">
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -52,6 +52,7 @@
         </div>
 
          @yield('content')
+
     </div>
     <!-- /.content-wrapper -->
 

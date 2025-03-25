@@ -11021,6 +11021,7 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
   right: 0;
   top: 0;
   z-index: 1033;
+  margin: 0 !important;
 }
 
 .layout-navbar-fixed.text-sm .wrapper .content-wrapper {
@@ -11648,7 +11649,7 @@ body.sidebar-collapse:not(.sidebar-mini-xs):not(.sidebar-mini-md):not(.sidebar-m
   body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer,
   body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header {
     transition: margin-left 0.3s ease-in-out;
-    margin-left: 250px;
+    margin-left: 0;
   }
 }
 
@@ -11681,7 +11682,7 @@ body.sidebar-collapse:not(.sidebar-mini-xs):not(.sidebar-mini-md):not(.sidebar-m
   .sidebar-mini-md .main-footer,
   .sidebar-mini-md .main-header {
     transition: margin-left 0.3s ease-in-out;
-    margin-left: 250px;
+    margin-left: 0;
   }
 }
 
@@ -11722,7 +11723,7 @@ body.sidebar-collapse:not(.sidebar-mini-xs):not(.sidebar-mini-md):not(.sidebar-m
   .sidebar-mini-xs .main-footer,
   .sidebar-mini-xs .main-header {
     transition: margin-left 0.3s ease-in-out;
-    margin-left: 250px;
+    margin-left: 0;
   }
 }
 

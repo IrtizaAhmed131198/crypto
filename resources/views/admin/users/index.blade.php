@@ -6,9 +6,10 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            {{-- <div class="card-header">
+            <div class="card-header">
               <h3 class="card-title">List Users </h3>
-            </div> --}}
+            </div>
+            <a class="btn btn-primary d-inline-block" href="{{ route('users.create') }}" style=" width: 120px; margin: 20px 20px; ">Create</a>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="data_table" class="table table-bordered table-striped">

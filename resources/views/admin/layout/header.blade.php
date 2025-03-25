@@ -27,6 +27,46 @@
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
   <style>
+    .layout-navbar-fixed .wrapper .main-header{
+        margin: 0 !important;
+    }
+    .footer-menu a {
+        color: #3a3a3a;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .footer-menu ul li {
+        margin: 0 14px;
+        display: flex;
+        align-items: center;
+    }
+    .footer-menu ul li:hover i {
+        color: orange;
+    }
+
+    .footer-menu ul li:hover a {
+        color: orange;
+    }
+    .footer-menu ul li.active i {
+        color: orange;
+    }
+
+    .footer-menu ul li.active a {
+        color: orange;
+    }
+        a.navbar-brand img {
+        max-width: 100px;
+    }
+    .layout-footer-fixed .wrapper .content-wrapper{
+        margin: 0 !important;
+    }
+    .footer-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
     body::before {
             background-image: none;
             background: url("{{ url('front/images/loginBackground.png') }}") no-repeat center center fixed;

@@ -1,10 +1,46 @@
 <!-- Main Footer -->
-<footer class="main-footer">
+<section class="footer-menu">
+    <div class="row">
+        <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
 
-    {{-- <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
-    </div> --}}
-</footer>
+                    <a href="{{ url('admin/home') }}" class="navbar-brand">
+                        <img src="{{ url('public/assets/logo/logo.png') }}" alt="AdminLTE Logo"
+                            class="img-fluid">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                            <li class="nav-item {{ request()->routeIs('admin.*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <a class="nav-link" aria-current="page" href="{{ url('home') }}">Dashboard</a>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-user"></i>
+                                <a class="nav-link" aria-current="page" href="{{ route('users.index') }}">Users</a>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-user"></i>
+                                <a class="nav-link" aria-current="page" href="{{ route('profile.edit') }}">Profile</a>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs('team.*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-user-friends"></i>
+                                <a class="nav-link" aria-current="page" href="{{ route('team.qr') }}">My Team</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</section>
+
 </div>
 <!-- ./wrapper -->
 <!-- REQUIRED SCRIPTS -->
