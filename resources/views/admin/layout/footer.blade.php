@@ -5,26 +5,28 @@
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
 
-                    <a href="{{ url('admin/home') }}" class="navbar-brand">
+                    {{-- <a href="{{ url('admin/home') }}" class="navbar-brand">
                         <img src="{{ url('public/assets/logo/logo.png') }}" alt="AdminLTE Logo"
                             class="img-fluid">
-                    </a>
+                    </a> --}}
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                    </button> --}}
+                    {{-- <div class="" id="navbarSupportedContent"> --}}
+                        <ul class="navbar-nav">
                             <li class="nav-item {{ request()->routeIs('admin.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <a class="nav-link" aria-current="page" href="{{ url('home') }}">Dashboard</a>
                             </li>
+                            @if(Auth::user()->role_id == 1)
                             <li class="nav-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <a class="nav-link" aria-current="page" href="{{ route('users.index') }}">Users</a>
                             </li>
+                            @endif
                             <li class="nav-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <a class="nav-link" aria-current="page" href="{{ route('profile.edit') }}">Profile</a>
@@ -34,7 +36,7 @@
                                 <a class="nav-link" aria-current="page" href="{{ route('team.qr') }}">My Team</a>
                             </li>
                         </ul>
-                    </div>
+                    {{-- </div> --}}
                 </div>
             </nav>
         </div>

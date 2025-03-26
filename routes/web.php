@@ -16,13 +16,20 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::redirect('/', url('/login'));
+Route::redirect('/admin', url('/admin/login'));
 
 Route::namespace('App\Http\Controllers\Admin')->group(function () {
     Route::get('login', 'AuthController@showLoginForm')->name('login');
-    Route::post('login', 'AuthController@login');
+    Route::post('login', 'AuthController@login')->name('login.post');
     Route::get('logout', 'AuthController@logout')->name('logout');
     Route::get('signup', 'AuthController@showRegisterForm')->name('signup');
     Route::post('signup', 'AuthController@register');
+});
+
+Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function () {
+    Route::get('login', 'AuthController@showLoginForm')->name('admin.login');
+    Route::post('login', 'AuthController@admin_login')->name('admin.login.post');
+    Route::get('logout', 'AuthController@logout')->name('admin.logout');
 });
 
 // Protected Admin Routes

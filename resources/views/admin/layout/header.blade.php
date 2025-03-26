@@ -153,5 +153,24 @@
         position: absolute;
         left: -9999px;
     }
+
+    /* footer nav */
+    .footer-menu ul li {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+}
+.footer-menu ul.navbar-nav {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    overflow-x: scroll;
+}
+    /* footer nav */
   </style>
 </head>

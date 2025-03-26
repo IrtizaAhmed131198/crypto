@@ -1,9 +1,9 @@
 @include('admin.auth.header')
 <div class="card">
     <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">{{ $isAdmin ? 'Admin Login' : 'User Login' }}</p>
 
-        <form action="{{ url('login') }}" method="post">
+        <form action="{{ $isAdmin ? route('admin.login.post') : route('admin.login') }}" method="post">
             {!! csrf_field() !!}
             @if (session('error'))
                 <div class="alert alert-danger">
@@ -42,11 +42,13 @@
                 </div>
                 <!-- /.col -->
             </div>
+            @if(!$isAdmin)
             <div class="row">
                 <div class="col-12">
                     <a href="{{ url('signup') }}">Create an account</a>
                 </div>
             </div>
+            @endif
         </form>
     </div>
 </div>

@@ -14,16 +14,17 @@ use App\Models\User;
 class AuthController extends Controller
 {
     // Login
-    public function showLoginForm()
+    public function showLoginForm(Request $request)
     {
-        // Check if user is already authenticated
+        $isAdmin = $request->is('admin/*'); // Check if it's an admin request
+
+        // If user is already logged in, redirect accordingly
         if (Auth::check()) {
-            // If authenticated, redirect to the dashboard
-            return redirect()->route('admin.home.index');
+            return redirect()->route($isAdmin ? 'admin.home.index' : 'user.dashboard');
         }
 
         // Show the login form
-        return view('admin.auth.login');
+        return view('admin.auth.login', compact('isAdmin')); // Pass isAdmin flag to view
     }
 
     public function login(Request $request)
@@ -34,7 +35,31 @@ class AuthController extends Controller
         if ($this->attemptLogin($request)) {
             // Check if the user has the required role
             $user = Auth::user();
-            if ($user) {
+            if ($user && $user->role_id == 2) {
+                // Redirect to the dashboard if the user has the required role
+                return redirect()->route('admin.home.index');
+            } else {
+                // If the user does not have the required role, logout and show a message
+                Auth::logout();
+                return redirect()->back()->withInput($request->only('email', 'remember'))->with('error', 'You do not have the required role to log in.');
+            }
+        }
+
+        // If login attempt fails, redirect back with error message
+        return redirect()->back()
+            ->withInput($request->only('email', 'remember'))
+            ->with('error', 'Invalid password or email.');
+    }
+
+    public function admin_login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        // Attempt to log in the user
+        if ($this->attemptLogin($request)) {
+            // Check if the user has the required role
+            $user = Auth::user();
+            if ($user && $user->role_id == 1) {
                 // Redirect to the dashboard if the user has the required role
                 return redirect()->route('admin.home.index');
             } else {
