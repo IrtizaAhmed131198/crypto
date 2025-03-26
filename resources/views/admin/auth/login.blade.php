@@ -3,7 +3,7 @@
     <div class="card-body login-card-body">
         <p class="login-box-msg">{{ $isAdmin ? 'Admin Login' : 'User Login' }}</p>
 
-        <form action="{{ $isAdmin ? route('admin.login.post') : route('admin.login') }}" method="post">
+        <form action="{{ $isAdmin ? route('admin.login.post') : route('login.post') }}" method="post">
             {!! csrf_field() !!}
             @if (session('error'))
                 <div class="alert alert-danger">

@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <!-- Info boxes -->
     <div class="row">
-        <h2>Comming Soon</h2>
+        <h2>Welcome {{ Auth::user()->name }}</h2>
     </div>
     <!-- /.row -->
   </div><!--/. container-fluid -->
