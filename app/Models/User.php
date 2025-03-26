@@ -31,6 +31,7 @@ class User extends Authenticatable
         'postal_code',
         'citizenship',
         'passport_number',
+        'status',
     ];
 
     /**
