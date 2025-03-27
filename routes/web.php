@@ -60,6 +60,9 @@ Route::namespace('App\Http\Controllers\Admin')
         //team
         Route::get('/team/qr', 'TeamController@qr')->name('team.qr');
 
+        Route::get('/withdraw', 'TeamController@withdraw')->name('withdraw');
+        Route::get('/deposit', 'TeamController@deposit')->name('deposit');
+
         //Partners
         Route::get('/getPartners', 'PartnersController@getPartners')->name('partners.getPartners');
         Route::get('/partners', 'PartnersController@index')->name('partners.index');

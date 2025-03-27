@@ -29,4 +29,14 @@ class TeamController extends Controller
             'registerUrl' => $registerUrl
         ]);
     }
+
+    public function withdraw()
+    {
+        return view('admin.team.withdraw');
+    }
+
+    public function deposit()
+    {
+        return view('admin.team.deposit');
+    }
 }

@@ -223,21 +223,40 @@ class UserController extends Controller
             'password' => 'nullable|string|min:8',
             'mobile' => 'required',
             'id' => 'required',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate avatar
         ]);
 
         if ($validator->fails()) {
-            return back()->with('error' , $validator->errors());
+            return back()->with('error', $validator->errors());
         }
 
         // Fetch the authenticated user
         $user = User::find($request->id);
+
         // Update the user's profile
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        if($request->input('password') != ''){
+        if ($request->filled('password')) {
             $user->password = Hash::make($request->input('password'));
         }
         $user->mobile = $request->input('mobile');
+
+        // Handle avatar upload
+        if ($request->hasFile('avatar')) {
+            // Delete old avatar if it exists
+            if ($user->avatar) {
+                $oldAvatarPath = public_path('uploads/avatars/' . $user->avatar);
+                if (file_exists($oldAvatarPath)) {
+                    unlink($oldAvatarPath);
+                }
+            }
+
+            // Store new avatar
+            $avatarName = time() . '.' . $request->avatar->extension();
+            $request->avatar->move(public_path('uploads/avatars'), $avatarName);
+            $user->image = $avatarName;
+        }
+
         $user->update();
 
         // Redirect back or to a success page

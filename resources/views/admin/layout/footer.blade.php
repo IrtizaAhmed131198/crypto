@@ -21,12 +21,12 @@
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <a class="nav-link" aria-current="page" href="{{ url('home') }}">Dashboard</a>
                             </li>
-                            @if(Auth::user()->role_id == 1)
+                            {{-- @if(Auth::user()->role_id == 1)
                             <li class="nav-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <a class="nav-link" aria-current="page" href="{{ route('users.index') }}">Users</a>
                             </li>
-                            @endif
+                            @endif --}}
                             <li class="nav-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <a class="nav-link" aria-current="page" href="{{ route('profile.edit') }}">Profile</a>
@@ -35,6 +35,15 @@
                                 <i class="nav-icon fas fa-user-friends"></i>
                                 <a class="nav-link" aria-current="page" href="{{ route('team.qr') }}">My Team</a>
                             </li>
+                            <li class="nav-item {{ request()->routeIs('withdraw.*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-wallet"></i> <!-- Changed to Wallet Icon -->
+                                <a class="nav-link" aria-current="page" href="{{ route('withdraw') }}">Withdraw</a>
+                            </li>
+
+                            <li class="nav-item {{ request()->routeIs('deposit') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-piggy-bank"></i> <!-- Changed to Piggy Bank Icon -->
+                                <a class="nav-link" aria-current="page" href="{{ route('deposit') }}">Deposit</a>
+                            </li>
                         </ul>
                     {{-- </div> --}}
                 </div>
@@ -42,7 +51,13 @@
         </div>
     </div>
 </section>
-
+<a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float-whatsapp" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+</a>
+<a href="https://t.me/Betcasn"
+   class="float-telegram" target="_blank">
+    <i class="fa fa-telegram my-float"></i>
+</a>
 </div>
 <!-- ./wrapper -->
 <!-- REQUIRED SCRIPTS -->
