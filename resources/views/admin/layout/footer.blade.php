@@ -21,12 +21,12 @@
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <a class="nav-link" aria-current="page" href="{{ url('home') }}">Dashboard</a>
                             </li>
-                            {{-- @if(Auth::user()->role_id == 1)
+                            @if(Auth::user()->role_id == 1)
                             <li class="nav-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <a class="nav-link" aria-current="page" href="{{ route('users.index') }}">Users</a>
                             </li>
-                            @endif --}}
+                            @endif
                             <li class="nav-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <a class="nav-link" aria-current="page" href="{{ route('profile.edit') }}">Profile</a>
