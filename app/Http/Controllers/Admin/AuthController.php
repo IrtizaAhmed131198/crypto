@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         // If user is already logged in, redirect accordingly
         if (Auth::check()) {
-            return redirect()->route($isAdmin ? 'admin.home.index' : 'user.dashboard');
+            return redirect()->route($isAdmin ? 'admin.home.index' : 'admin.home.index');
         }
 
         // Show the login form

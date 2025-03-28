@@ -16,46 +16,46 @@
                         <span class="navbar-toggler-icon"></span>
                     </button> --}}
                     {{-- <div class="" id="navbarSupportedContent"> --}}
-                        <ul class="navbar-nav">
-                            <li class="nav-item {{ request()->routeIs('admin.*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <a class="nav-link" aria-current="page" href="{{ url('home') }}">Dashboard</a>
-                            </li>
-                            @if(Auth::user()->role_id == 1)
+                    <ul class="navbar-nav">
+                        <li class="nav-item {{ request()->routeIs('admin.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <a class="nav-link" aria-current="page" href="{{ url('home') }}">Dashboard</a>
+                        </li>
+                        @if (Auth::user()->role_id == 1)
                             <li class="nav-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <a class="nav-link" aria-current="page" href="{{ route('users.index') }}">Users</a>
                             </li>
-                            @endif
-                            <li class="nav-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-user"></i>
-                                <a class="nav-link" aria-current="page" href="{{ route('profile.edit') }}">Profile</a>
-                            </li>
-                            <li class="nav-item {{ request()->routeIs('team.*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-user-friends"></i>
-                                <a class="nav-link" aria-current="page" href="{{ route('team.qr') }}">My Team</a>
-                            </li>
-                            <li class="nav-item {{ request()->routeIs('withdraw.*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-wallet"></i> <!-- Changed to Wallet Icon -->
-                                <a class="nav-link" aria-current="page" href="{{ route('withdraw') }}">Withdraw</a>
-                            </li>
+                        @endif
+                        <li class="nav-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user"></i>
+                            <a class="nav-link" aria-current="page" href="{{ route('profile.edit') }}">Profile</a>
+                        </li>
+                        <li class="nav-item {{ request()->routeIs('team.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user-friends"></i>
+                            <a class="nav-link" aria-current="page" href="{{ route('team.qr') }}">My Team</a>
+                        </li>
+                        <li class="nav-item {{ request()->routeIs('withdraw.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-wallet"></i> <!-- Changed to Wallet Icon -->
+                            <a class="nav-link" aria-current="page" href="{{ route('withdraw') }}">Withdraw</a>
+                        </li>
 
-                            <li class="nav-item {{ request()->routeIs('deposit') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-piggy-bank"></i> <!-- Changed to Piggy Bank Icon -->
-                                <a class="nav-link" aria-current="page" href="{{ route('deposit') }}">Deposit</a>
-                            </li>
-                        </ul>
+                        <li class="nav-item {{ request()->routeIs('deposit') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-piggy-bank"></i> <!-- Changed to Piggy Bank Icon -->
+                            <a class="nav-link" aria-current="page" href="{{ route('deposit') }}">Deposit</a>
+                        </li>
+                    </ul>
                     {{-- </div> --}}
                 </div>
             </nav>
         </div>
     </div>
 </section>
-<a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float-whatsapp" target="_blank">
+{{-- <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202."
+    class="float-whatsapp" target="_blank">
     <i class="fa fa-whatsapp my-float"></i>
-</a>
-<a href="https://t.me/Betcasn"
-   class="float-telegram" target="_blank">
+</a> --}}
+<a href="https://t.me/t_Emma21" class="float-telegram" target="_blank">
     <i class="fa fa-telegram my-float"></i>
 </a>
 </div>
@@ -106,6 +106,10 @@
 <script src="{{ url('public/admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
+{{-- slider cdn --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url('public/admin/dist/js/demo.js') }}"></script>
 <!-- Custom js -->
@@ -113,12 +117,32 @@
 
 @yield('script')
 <script>
-    @if(Session::has('success'))
-    alert("{{ session('success') }}");
+    @if (Session::has('success'))
+        alert("{{ session('success') }}");
     @endif
-    @if(Session::has('error'))
-    alert("{{ session('error') }}");
+    @if (Session::has('error'))
+        alert("{{ session('error') }}");
     @endif
+</script>
+
+
+<script>
+    $('.banner-slides').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
+    })
 </script>
 
 @if ($errors->any())

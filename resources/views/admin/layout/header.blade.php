@@ -2,78 +2,98 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Binex</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Binex</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{url('public/admin/plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{url('public/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{url('public/admin/dist/css/adminlte.min.css')}}">
-  <!-- summernote -->
-  <link rel="stylesheet" href="{{url('public/admin/plugins/summernote/summernote-bs4.min.css')}}">
-  <!-- CodeMirror -->
-  {{-- <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css"> --}}
-  <link rel="icon" type="image/png" href="{{ url('public/front/images/favicon.png') }}">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{{ url('public/admin/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{ url('public/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ url('public/admin/dist/css/adminlte.min.css') }}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ url('public/admin/plugins/summernote/summernote-bs4.min.css') }}">
+    <!-- CodeMirror -->
+    {{-- <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css"> --}}
+    <link rel="icon" type="image/png" href="{{ url('public/front/images/favicon.png') }}">
 
-  <link rel="stylesheet" href="{{url('public/admin/plugins/codemirror/codemirror.css')}}">
-  <link rel="stylesheet" href="{{url('public/admin/plugins/codemirror/theme/monokai.css')}}">
+    <link rel="stylesheet" href="{{ url('public/admin/plugins/codemirror/codemirror.css') }}">
+    <link rel="stylesheet" href="{{ url('public/admin/plugins/codemirror/theme/monokai.css') }}">
     {{-- <link rel="stylesheet" href="{{url('public/admin/dist/css/line-awesome.min.css')}}"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-   <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    .layout-navbar-fixed .wrapper .main-header{
-        margin: 0 !important;
-    }
-    .footer-menu a {
-        color: #3a3a3a;
-        font-size: 16px;
-        font-weight: 600;
-    }
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    .footer-menu ul li {
-        margin: 0 14px;
-        display: flex;
-        align-items: center;
-    }
-    .footer-menu ul li:hover i {
-        color: orange;
-    }
+    {{-- slides cdn --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    .footer-menu ul li:hover a {
-        color: orange;
-    }
-    .footer-menu ul li.active i {
-        color: orange;
-    }
+    <style>
+        .layout-navbar-fixed .wrapper .main-header {
+            margin: 0 !important;
+        }
 
-    .footer-menu ul li.active a {
-        color: orange;
-    }
+        .footer-menu a {
+            color: #3a3a3a;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .footer-menu ul li {
+            margin: 0 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-menu ul li:hover i {
+            color: orange;
+        }
+
+        .footer-menu ul li:hover a {
+            color: orange;
+        }
+
+        .footer-menu ul li.active i {
+            color: orange;
+        }
+
+        .footer-menu ul li.active a {
+            color: orange;
+        }
+
         a.navbar-brand img {
-        max-width: 100px;
-    }
-    .layout-footer-fixed .wrapper .content-wrapper{
-        margin: 0 !important;
-    }
-    .footer-menu {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #ededed;
-    }
-    body::before {
+            max-width: 100px;
+        }
+
+        .layout-footer-fixed .wrapper .content-wrapper {
+            margin: 0 !important;
+        }
+
+        .footer-menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #ededed;
+        }
+
+        body::before {
             background-image: none;
             background: url("{{ url('front/images/loginBackground.png') }}") no-repeat center center fixed;
             background-size: cover;
-            opacity: 0.5; /* Adjust the opacity based on your preference */
+            opacity: 0.5;
+            /* Adjust the opacity based on your preference */
             top: 0;
             left: 0;
             bottom: 0;
@@ -81,219 +101,340 @@
             position: fixed;
             z-index: -2;
         }
-    thead,
-    tfoot,
-    .card-header {
-      background-color: #212529 !important;
-      color: #fff !important;
-    }
 
-    .btn-custom {
-      color: #fff !important;
-      background-color: #212529 !important;
-      border-color: #13237e !important;
-    }
+        thead,
+        tfoot,
+        .card-header {
+            background-color: #212529 !important;
+            color: #fff !important;
+        }
 
-    .btn-custom:hover {
-      color: #fff !important;
-      background-color: #16205a !important;
-      border-color: #0e1a5c !important;
-    }
+        .btn-custom {
+            color: #fff !important;
+            background-color: #212529 !important;
+            border-color: #13237e !important;
+        }
 
-    .page-item.active .page-link {
-      background-color: #212529 !important;
-      border-color: #13237e !important;
-    }
+        .btn-custom:hover {
+            color: #fff !important;
+            background-color: #16205a !important;
+            border-color: #0e1a5c !important;
+        }
 
-    thead th {
-      white-space: nowrap;
-    }
+        .page-item.active .page-link {
+            background-color: #212529 !important;
+            border-color: #13237e !important;
+        }
 
-    .main-footer {
-      text-align: center;
-      font-size: 13px;
-    }
+        thead th {
+            white-space: nowrap;
+        }
 
-    .main-footer span{
-      font-weight: 600;
-    }
+        .main-footer {
+            text-align: center;
+            font-size: 13px;
+        }
 
-    .main-footer span a{
-      color: #212529;
-    }
-    [class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus {
-      background-color: #212529;
-      color: #fff !important;
-    }
-    .content-header .container-fluid .row .col-sm-6 h1 {
-      font-size: 1.5rem;
-    }
-    .qr_code {
-        text-align: center;
-        margin-top: 15px;
-        padding: 15px;
-    }
+        .main-footer span {
+            font-weight: 600;
+        }
 
-    .copy-container {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-top: 15px;
-    }
-    .copy-btn, .share-btn {
-        cursor: pointer;
-        padding: 8px 12px;
-        border: none;
-        background-color: #007bff;
-        color: white;
-        border-radius: 5px;
-    }
-    .copy-btn:hover, .share-btn:hover {
-        background-color: #0056b3;
-    }
-    .hidden-input {
-        position: absolute;
-        left: -9999px;
-    }
+        .main-footer span a {
+            color: #212529;
+        }
 
-    /* footer nav */
-    .footer-menu ul li {
-        margin: 0 10px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        white-space: nowrap;
-        flex-wrap: nowrap;
-    }
-    .footer-menu ul.navbar-nav {
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        overflow-x: auto;
-    }
+        [class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link,
+        [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link,
+        [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus {
+            background-color: #212529;
+            color: #fff !important;
+        }
 
-    @media screen and (min-width: 1200px) {
+        .content-header .container-fluid .row .col-sm-6 h1 {
+            font-size: 1.5rem;
+        }
+
+        .qr_code {
+            text-align: center;
+            margin-top: 15px;
+            padding: 15px;
+        }
+
+        .copy-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .copy-btn,
+        .share-btn {
+            cursor: pointer;
+            padding: 8px 12px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .copy-btn:hover,
+        .share-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden-input {
+            position: absolute;
+            left: -9999px;
+        }
+
+        /* footer nav */
+        .footer-menu ul li {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            white-space: nowrap;
+            flex-wrap: nowrap;
+        }
+
+        .footer-menu ul.navbar-nav {
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .banner__img img {
+            width: 50% !important;
+            margin-left: auto;
+        }
+
+        .about-crpty {
+            background: black;
+            text-align: center;
+            padding: 10px;
+            margin-top: 0;
+            color: white;
+            font-weight: 300;
+        }
+
+        @media screen and (min-width: 1200px) {
+            .banner {
+                margin-bottom: 3.5rem;
+                padding: 2.5rem;
+                height: 245px;
+            }
+
+            /* .banner__img img {
+                position: absolute;
+                top: -150px;
+                right: 0;
+            } */
+        }
+
+        @media screen and (max-width: 575px) {
+            /* .banner__img img {
+                display: none;
+            } */
+
+            .banner-slides .owl-dots {
+
+                bottom: 0px !important;
+
+            }
+
+            .banner__img img {
+                width: 100% !important;
+            }
+
+            .banner__img {
+                width: 40%;
+            }
+
+            .text-4xl {
+                font-size: 17px !important;
+            }
+
+            .owl-theme .owl-nav.disabled+.owl-dots .owl-dot span {
+                width: 8px !important;
+                height: 6px !important;
+            }
+
+            .owl-theme .owl-nav.disabled+.owl-dots .owl-dot.active span {
+                width: 12px !important;
+                height: 6px !important;
+            }
+
+            .portos {
+                grid-template-columns: repeat(auto-fill, minmax(30px, 180px)) !important;
+            }
+
+            .portos p {
+                font-size: 20px !important;
+
+                margin-bottom: 5px;
+                margin-top: 10px;
+            }
+
+            .about-crpty {
+                font-size: 12px !important;
+                padding: 30px 0;
+            }
+
+            .about-crpty h3 {
+                font-size: 15px !important;
+            }
+
+            .float-whatsapp {
+                width: 30px !important;
+                height: 30px !important;
+                font-size: 18px !important;
+                bottom: 140px !important;
+        right: 20px !important;
+            }
+
+            i.fa.fa-whatsapp.my-float {
+                margin-top: 7px !important;
+            }
+
+            a.float-telegram {
+                width: 30px !important;
+                height: 30px !important;
+                font-size: 18px !important;
+                bottom: 180px !important;
+                right: 20px !important;
+            }
+
+            i.fa.fa-telegram.my-float {
+                margin-top: 7px !important;
+            }
+
+        }
+
         .banner {
-            margin-bottom: 3.5rem;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .banner-slides .owl-dots {
+            position: absolute;
+            z-index: 0;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+        }
+
+        .owl-theme .owl-nav.disabled+.owl-dots .owl-dot.active span {
+            width: 15px;
+            background: white;
+        }
+
+        .owl-theme .owl-nav.disabled+.owl-dots .owl-dot span {
+            background: #869791;
+        }
+
+        .banner {
+            /* margin-bottom: 3.5rem; */
             padding: 2.5rem;
             height: 245px;
         }
 
-        .banner__img img {
+        .text-4xl {
+            font-size: 2.25rem;
+        }
+
+        .text-white {
+            color: #FFFFFF;
+        }
+
+        .banner__cta {
+            width: 100%;
+        }
+
+        .banner__img {
+            position: relative;
+        }
+
+        /* .banner__img img {
             position: absolute;
-            top: -150px;
+            top: -250px;
             right: 0;
-        }
-    }
+        } */
 
-    @media screen and (max-width: 575px) {
-        .banner__img img {
-            display: none;
-        }
-    }
+        /* footer nav */
 
-    .banner {
-        border-radius: 24px;
-    }
-
-    .banner {
-        /* margin-bottom: 3.5rem; */
-        padding: 2.5rem;
-        height: 245px;
-    }
-
-    .text-4xl {
-        font-size: 2.25rem;
-    }
-
-    .text-white {
-        color: #FFFFFF;
-    }
-
-    .banner__cta {
-        width: 100%;
-    }
-
-    .banner__img {
-        position: relative;
-    }
-
-    .banner__img img {
-        position: absolute;
-        top: -250px;
-        right: 0;
-    }
-    /* footer nav */
-
-    .portos {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(285px, 285px));
-        gap: 1rem;
-    }
-
-    @media screen and (min-width: 1200px) {
         .portos {
-            margin-bottom: 2rem;
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(285px, 285px));
+            gap: 1rem;
         }
-    }
 
-    .porto {
-        font-weight: bold;
-        padding: 1rem;
-        border-radius: 16px;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    }
+        @media screen and (min-width: 1200px) {
+            .portos {
+                margin-bottom: 2rem;
+            }
+        }
 
-    .text-xl {
-        font-size: 1.25rem;
-    }
+        .porto {
+            font-weight: bold;
+            padding: 1rem;
+            border-radius: 16px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
 
-    .text-gray-500 {
-        color: #919EAB;
-    }
+        .text-xl {
+            font-size: 1.25rem;
+        }
 
-    .text-error {
-        color: #FF4842;
-    }
+        .text-gray-500 {
+            color: #919EAB;
+        }
 
-    li.list-group-item img {
-        width: 23px;
-    }
+        .text-error {
+            color: #FF4842;
+        }
 
-    .float-whatsapp{
-        position:fixed;
-        width:60px;
-        height:60px;
-        bottom:40px;
-        right:40px;
-        background-color:#25d366;
-        color:#FFF;
-        border-radius:50px;
-        text-align:center;
-    font-size:30px;
-        box-shadow: 2px 2px 3px #999;
-    z-index:100;
-    }
+        li.list-group-item img {
+            width: 23px;
+        }
 
-    .float-telegram {
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 110px; /* Positioned above WhatsApp */
-        right: 40px;
-        background-color: #0088cc;
-        color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        font-size: 30px;
-        box-shadow: 2px 2px 3px #999;
-        z-index: 100;
-    }
+        .float-whatsapp {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
 
-    .my-float{
-        margin-top:16px;
-    }
-  </style>
+        .float-telegram {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 110px;
+            /* Positioned above WhatsApp */
+            right: 40px;
+            background-color: #0088cc;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .my-float {
+            margin-top: 16px;
+        }
+    </style>
 </head>
